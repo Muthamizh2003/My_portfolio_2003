@@ -1,0 +1,193 @@
+.mywork {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 80px;
+    margin: 80px 150px;
+}
+
+.mywork-title {
+    position: relative;
+}
+
+/* Grid container */
+.mywork-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* 3 columns for desktop */
+    gap: 60px; /* Increased gap between grid items */
+}
+
+/* Flip card container */
+.mywork-item {
+    width: 300px; /* Reduced width */
+    height: 180px; /* Reduced height */
+    perspective: 1000px;
+    position: relative;
+}
+
+/* Inner flip card */
+.mywork-item-inner {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    position: relative;
+    border-radius: 15px; /* Slightly smaller border radius */
+    border: 3px solid transparent; /* Default border */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Flip effect */
+.mywork-item:hover .mywork-item-inner {
+    transform: rotateY(180deg);
+    border: 3px solid linear-gradient(270deg, #DF8908 53%, #a70cef 102.06%);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Increased shadow on hover */
+}
+
+.mywork-item-front,
+.mywork-item-back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+/* Front face of the flip card */
+.mywork-item-front {
+    z-index: 2;
+    transform: rotateY(0deg);
+    border: 2px solid #ccc; /* Border for front face */
+}
+
+/* Front image */
+.mywork-item-front img {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+/* Back face of the flip card */
+.mywork-item-back {
+    background-color: #c0e3e9;
+    transform: rotateY(180deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    font-size: 16px;
+    color: #333;
+    border: 2px solid #ccc; /* Border for back face */
+}
+
+/* Back face text */
+.mywork-item-back p {
+    background: linear-gradient(270deg, #DF8908 53%, #a70cef 102.06%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; /* Gradient text effect */
+    font-weight: bold;
+    margin: 0;
+}
+
+/* Show more button */
+.mywork-showmore {
+    display: flex;
+    gap: 20px;
+    border-radius: 50px;
+    border: 2px solid white;
+    padding: 20px 50px;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 80px;
+    transition: 0.6s;
+    cursor: pointer;
+    background: linear-gradient(270deg, #DF8908 53%, #a70cef 102.06%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.mywork-showmore:hover {
+    gap: 30px;
+    transition: 0.6s;
+}
+
+.mywork-title h1 {
+    position: relative;
+    padding: 25px 45px;
+    border-radius: 50px;
+    border: 4px solid transparent;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.mywork-title h1::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border-radius: 50px;
+    border: 4px solid transparent;
+    background: linear-gradient(267deg, #da7c25, #b923e1, #da7c25);
+    background-size: 300% 300%;
+    z-index: -1;
+    animation: borderLoop 5s linear infinite;
+    border: 6px solid rgb(172, 39, 138);
+}
+
+@keyframes borderLoop {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+/* Mobile view adjustments */
+@media(max-width: 768px) {
+    .mywork {
+        gap: 30px;
+        margin: 50px 20px;
+        align-items: flex-start;
+    }
+    .mywork-title h1 {
+        padding: 10px;
+        font-size: 24px;
+        font-weight: 600;
+    }
+    .mywork-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 items per row on mobile */
+        gap: 30px;
+    }
+    .mywork-item {
+        max-width: 100%;
+        width: 170px; /* Reduced width for mobile */
+        height: 120px; /* Adjusted height for mobile */
+    }
+    .mywork-showmore {
+        padding: 15px 30px;
+        font-size: 16px;
+        margin: 30px auto;
+    }
+    /* Back face of the flip card */
+.mywork-item-back {
+    background-color: #c0e3e9;
+    transform: rotateY(180deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 3px;
+    font-size: 10px;
+    color: #333;
+    border: 2px solid #de69d2; /* Border for back face */
+}
+}

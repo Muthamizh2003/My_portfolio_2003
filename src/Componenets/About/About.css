@@ -1,0 +1,229 @@
+/* Base Styles */
+.about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 80px;
+  margin: 80px 170px;
+}
+
+.about-title {
+  position: relative;
+}
+
+.about-title h1 {
+  padding: 10px 20px;
+  font-size: 50px;
+  font-weight: 400;
+  position: relative;
+  padding: 25px 45px;
+  border-radius: 50px;
+  border: 4px solid transparent;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.about-title h1::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border-radius: 50px;
+  border: 6px solid whitesmoke; /* Correct border color */
+  background: linear-gradient(267deg, #da7c25, #b923e1, #da7c25);
+  background-size: 300% 300%;
+  z-index: -1;
+  animation: borderLoop 5s linear infinite;
+}
+
+@keyframes borderLoop {
+  0% {
+      background-position: 0% 50%;
+  }
+  100% {
+      background-position: 100% 50%;
+  }
+}
+
+
+.about-left img {
+  position: relative; /* Keep it in flow */
+  flex: 1; /* Make it take the available space on the left */
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+}
+
+.about-left img {
+  width: 100%; /* Ensures the image fills the section */
+  height: 100%; /* Ensures full coverage */
+  padding: auto;
+  object-fit: cover; /* Ensures the image covers the space without distortion */
+}
+
+.about-section {
+  display: flex;
+  gap: 80px;
+  justify-content: space-between; /* Ensures both sections are evenly spaced */
+}
+
+.about-achievements {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-bottom: 80px;
+}
+
+.about-right {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+.about-para {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.about-skills {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.growing-line {
+  width: 0;
+  transition: width 2s ease;
+}
+
+.grow {
+  width: inherit;
+}
+
+.about-skill {
+  display: flex;
+  gap: 50px;
+  align-items: center;
+  transition: 0.3s;
+}
+
+.about-skill p {
+  min-width: 150px;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.about-skill hr {
+  outline: none;
+  border: none;
+  width: 40px;
+  height: 8px;
+  border-radius: 55px;
+  background: linear-gradient(267deg, #da7c25 0.36%, #b923e1 102.06%);
+}
+
+.about-achievement {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  transition: 0.5s;
+}
+
+.about-achievement h1 {
+  font-size: 60px;
+  font-weight: 700;
+  background: linear-gradient(267deg, #da7c25 0.36%, #b923e1 102.06%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.about-achievement p {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.about-skill:hover {
+  transform: scale(1.05);
+  transition: 0.3s;
+}
+
+.about-achievement:hover {
+  transform: scale(1.12);
+  transition: 0.5s;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .about {
+      gap: 40px; /* Reduced gap for mobile */
+      margin: 50px 20px; /* Adjusted margins */
+      align-items: flex-start; /* Align to the start */
+  }
+
+  .about-title h1 {
+      font-size: 36px; /* Adjusted font size */
+      padding: 15px 25px; /* Adjusted padding */
+  }
+
+  .about-section {
+      flex-direction: column; /* Stack sections vertically on mobile */
+  }
+
+  .about-left {
+      display: none; /* Hide on mobile if not needed */
+  }
+
+  .about-para {
+      font-size: 18px;
+      line-height: 32px;
+  }
+
+  .about-skills {
+    gap: 15px; /* Reduced gap for mobile view */
+}
+
+.about-skill {
+    gap: 20px; /* Adjusted gap for mobile */
+    flex-direction: column; /* Stack items vertically on mobile */
+    align-items: flex-start; /* Align items to the start */
+}
+
+.about-skill p {
+    font-size: 20px; /* Adjusted font size for mobile */
+    text-align: left; /* Align text to the left on mobile */
+    min-width: auto; /* Remove min-width for better mobile responsiveness */
+}
+
+.about-skill hr {
+    height: 6px; /* Adjusted height for mobile */
+    margin-top: 10px; /* Added margin for spacing */
+}
+
+.about-achievements {
+  flex-direction: column; /* Stack achievements vertically on mobile */
+  gap: 30px; /* Increased gap for mobile view */
+}
+
+.about-achievement {
+  width: 100%; /* Ensure each achievement takes full width on mobile */
+  text-align: center; /* Center text on mobile */
+}
+
+.about-achievement h1 {
+  font-size: 34px; /* Adjusted font size for mobile */
+}
+
+.about-achievement p {
+  font-size: 16px; /* Adjusted font size for mobile */
+}
+}
+
+
+
